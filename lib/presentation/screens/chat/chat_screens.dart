@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:yes_no/presentation/chat/widgets/chat_view.dart';
+import 'package:yes_no/presentation/widgets/chat/chat_view.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});

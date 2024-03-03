@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class MyMessageBubble extends StatelessWidget {
+  const MyMessageBubble({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          margin: const EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+            color: colors.primaryContainer,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Text(
+            'Laboris duis dolore',
+            style: TextStyle(
+              color: colors.onPrimaryContainer,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
