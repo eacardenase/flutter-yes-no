@@ -17,6 +17,10 @@ class ChatView extends StatelessWidget {
   Widget build(BuildContext context) {
     final chatProvider = context.watch<ChatProvider>();
 
+    void sendMessage(String text) {
+      chatProvider.sendMessage(text);
+    }
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -34,7 +38,9 @@ class ChatView extends StatelessWidget {
                 },
               ),
             ),
-            const MessageFieldBox(),
+            MessageFieldBox(
+              onValue: sendMessage,
+            ),
           ],
         ),
       ),

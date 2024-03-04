@@ -23,7 +23,7 @@ class HerMessageBubble extends StatelessWidget {
           decoration: BoxDecoration(
             color: colors.tertiaryContainer,
             borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
               topRight: Radius.circular(20),
               bottomRight: Radius.circular(20),
             ),
