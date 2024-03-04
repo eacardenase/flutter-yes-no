@@ -40,14 +40,29 @@ class _ImageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final width = size.width * 0.7;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
         'https://yesno.wtf/assets/no/16-b66d2db7543f5259c86abc166d6901cf.gif',
-        width: size.width * 0.7,
+        width: width,
         height: 150,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+
+          return Container(
+            width: width,
+            height: 150,
+            color: Colors.black12,
+            child: const Center(
+              child: Text('Her 💕 is sending an image...'),
+            ),
+          );
+        },
       ),
     );
   }
