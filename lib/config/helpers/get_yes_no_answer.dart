@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:yes_no/domain/entities/message.dart';
+import 'package:yes_no/infrastructure/models/yes_no_model.dart';
 
 class GetYesNoAnswer {
   static final _dio = Dio();
@@ -9,11 +10,12 @@ class GetYesNoAnswer {
 
   static Future<Message> getAnswer() async {
     final response = await _dio.get('https://yesno.wtf/api');
+    final yesNoModel = YesNoModel.fromJson(response.data);
 
-    print(response);
-    print(response.data);
-
-    throw UnimplementedError();
-    // return;
+    return Message(
+      text: yesNoModel.answer,
+      fromWho: FromWho.her,
+      imageUrl: yesNoModel.image,
+    );
   }
 }
